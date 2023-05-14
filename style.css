@@ -3,3 +3,13 @@ html {
     width: 100%;
   }
   
+  body {
+    background-color: blue;
+    color: white
+  }
+  table {
+    table-layout: auto;
+    width: 100%;
+    margin-left: auto;
+    border: 3px solid white
+  }

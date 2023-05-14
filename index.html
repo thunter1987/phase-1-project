@@ -21,9 +21,41 @@
               <th>Name</th>
               <th>Login</th>
               <th>Trained On</th>
+              <th>Job Assignment</th>
             </tr>
           </thead>
         </table>
+      </section>
+      <section class="employee-add-remove">
+        <!-- form to add new employee-->
+        <form id="add-employee-form">
+          <h3>Add New Employee</h3>
+          <div>
+            <label for="employee-name">Name:</label>
+            <input type="text" id="employee-name" required />
+          </div>
+          <div>
+            <label for="employee-login">Employee Login</label>
+            <input type="text" id="employee-login" required />
+          </div>
+          <div>
+            <label for="employee-training">Trained On:</label>
+            <select id="employee-training" required>
+              <option value="">Select Training</option>
+              <option value="induction">Induction</option>
+              <option value="divert">Divert</option>
+              <option value="pick">Pick</option>
+              <option value="sort">Sort</option>
+            </select>
+          </div>
+          <button type="submit" id="add-employee-button">Add</button>
+        </form>
+        <h3>Remove Employee</h3>
+        <div>
+          <label for="employee-login">Employee Login</label>
+          <input type="text" id="employee-login-remove" required />
+        </div>
+        <button type="click" id="remove-employee-button">Remove</button>
       </section>
 
       </main>

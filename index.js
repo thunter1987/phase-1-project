@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let employeeRow = document.createElement("tr");
     let nameCell = document.createElement("td");
     let loginCell = document.createElement("td");
-    let skillCell = document.createElement("td");
+    let trainingCell = document.createElement("td");
   }
 });

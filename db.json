@@ -1,0 +1,53 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": ""
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 3
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 4
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 5
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "login": "",
+      "training": [],
+      "assignment": "",
+      "id": 7
+    }
+  ]
+}
