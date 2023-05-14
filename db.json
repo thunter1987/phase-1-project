@@ -1,14 +1,6 @@
 {
   "associates": [
     {
-      "id": 1,
-      "name": "John Smith",
-      "login": "jsamzl",
-      "training": ["Induction",
-    "Divert"],
-      "assignment": ""
-    },
-    {
       "name": "Jane Smith",
       "login": "jaamzl",
       "training": [
@@ -29,6 +21,14 @@
       ],
       "assignment": "Pick P",
       "id": 3
+    },
+    {
+      "name": "John Smith",
+      "login": "jsamzl",
+      "training": [
+        "Induction"
+      ],
+      "id": 4
     }
   ]
 }

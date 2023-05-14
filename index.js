@@ -45,11 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let nameCell = rows[i].querySelectorAll("td")[0];
         let loginCell = rows[i].querySelectorAll("td")[1];
 
-        // check if name exists
-        if (nameCell && nameCell.textContent === associateName.value) {
-          alert("associate name already exist");
-          return;
-        }
         // check if login exists
         if (loginCell && loginCell.textContent === associateLogin.value) {
           alert("associate login already exists");
@@ -63,17 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
         training: associateTraining.value,
       };
 
-      // call function saveAssociate
       saveAssociate(newAssociate);
       addAssociateForm.reset();
     });
   }
 
   function saveAssociate(newAssociate) {
-    //  check if the training field is a string and convert it to an array before saving it to the database
-    if (typeof newAssociate.training === "string") {
-      newAssociate.training = [newAssociate.training];
-    }
+    //  convert training string into an array before saving it to the database
+    newAssociate.training = [newAssociate.training];
+
     // use POST method to update new associate to db.json
     fetch("http://localhost:3000/associates", {
       method: "POST",
@@ -84,6 +77,59 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(newAssociate),
     })
       .then((response) => response.json())
-      .then((associate) => createAssociateElement(associate)); // call function createAssociateElement to create new associate
+      .then((associate) => createAssociateElement(associate));
+  }
+
+  function removeAssociates() {
+    const removeAssociateBtn = document.getElementById(
+      "remove-associate-button"
+    );
+
+    removeAssociateBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      // get associate login value
+      let associateLogin = document.getElementById(
+        "associate-login-remove"
+      ).value;
+
+      fetch(`http://localhost:3000/associates?login=${associateLogin}`) // //retrieve the associate with the specified login
+        .then((response) => response.json())
+        .then((associates) => {
+          // if associate login value is invalid, we can not fetch, the return by json will be empty
+          if (associates.length === 0) {
+            alert("Invalid associate login");
+          }
+
+          // only one associate match the associate login, so we can access the first associate object return by json
+          let associateId = associates[0].id;
+          console.log(associateId);
+
+          // use associate ID to fetch data and DELETE method to delete that associate
+          fetch(`http://localhost:3000/associates/${associateId}`, {
+            method: "DELETE",
+          })
+            .then((response) => response.json())
+            .then((removedAssociate) => {
+              removeAssociateRow(associateLogin); // call removeAssociateRow to remove associate from table
+              console.log(removedAssociate);
+            })
+            .catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
+    });
+  }
+
+  function removeAssociateRow(associateLogin) {
+    // Loop through each row of the table
+    for (let i = 0; i < rows.length; i++) {
+      // Get the cell containing the login of the associate in row at td[1]
+      let loginCell = rows[i].querySelectorAll("td")[1];
+
+      if (loginCell && loginCell.textContent === associateLogin) {
+        rows[i].remove();
+        break;
+      }
+    }
   }
 });
