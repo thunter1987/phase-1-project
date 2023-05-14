@@ -4,50 +4,31 @@
       "id": 1,
       "name": "John Smith   ",
       "login": "jsamzl",
-      "training": [],
+      "training": ["Induction",
+    "Divert"],
       "assignment": ""
     },
     {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
+      "name": "Jane Smith",
+      "login": "jaamzl",
+      "training": [
+        "Induction",
+        "Stow"
+      ],
+      "assignment": "Stow E",
       "id": 2
     },
     {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
+      "name": "Tony Hunter",
+      "login": "thamzl",
+      "training": [
+        "Induction",
+        "Divert",
+        "Pick",
+        "Stow"
+      ],
+      "assignment": "Pick P",
       "id": 3
-    },
-    {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
-      "id": 4
-    },
-    {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
-      "id": 5
-    },
-    {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
-      "id": 6
-    },
-    {
-      "name": "",
-      "login": "",
-      "training": [],
-      "assignment": "",
-      "id": 7
     }
   ]
 }
