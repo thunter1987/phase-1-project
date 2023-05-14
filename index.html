@@ -41,7 +41,7 @@
           <div>
             <label for="employee-training">Trained On:</label>
             <select id="employee-training" required>
-              <option value="">Select Training</option>
+              <option value="">Select Training...</option>
               <option value="induction">Induction</option>
               <option value="divert">Divert</option>
               <option value="pick">Pick</option>
@@ -76,6 +76,66 @@
             </select>
           </div>
           <button type="submit" id="update-training-button">Update</button>
+        </form>
+        <!-- form to submit work assignment-->
+        <form id="add-work-form">
+          <h3>Associate Work Assignment</h3>
+          <div>
+            <label for="assignment-name">Work Assignment</label>
+            <select id="assignment" required>
+              <option value="">Select Assignment...</option>
+              <optgroup label="Induction">
+                <option>Water Spider</option>
+                <option>Line Loader</option>
+                <option>Inductor</option>
+                <option>Pusher</option>
+              </optgroup>
+              <optgroup label="Divert">
+                <option>A,B</option>
+                <option>C,D</option>
+                <option>H,J</option>
+                <option>K,L</option>
+              </optgroup>
+              >
+              <optgroup label="Pick">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>G</option>
+                <option>H</option>
+                <option>J</option>
+                <option>K</option>
+                <option>L</option>
+                <option>M</option>
+                <option>P</option>
+              </optgroup>
+              >
+              <optgroup label="Sort">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>G</option>
+                <option>H</option>
+                <option>J</option>
+                <option>K</option>
+                <option>L</option>
+                <option>M</option>
+                <option>P</option>
+              </optgroup>
+              >
+            </select>
+          </div>
+          <div>
+            <label for="employee-login">Employee Login: </label>
+            <input type="text" id="employee-login-add-work" required />
+          </div>
+          <button type="submit" id="add-work-button">
+            Add Work Assignment
+          </button>
         </form>
       </section>
     </main>
