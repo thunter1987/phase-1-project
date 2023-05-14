@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       let associateName = document.getElementById("associate-name");
       let associateLogin = document.getElementById("associate-login");
-      let associateSkill = document.getElementById("associate-skill");
+      let associateTraining = document.getElementById("associate-training");
 
       // loop through row of table
       for (let i = 0; i < rows.length; i++) {
@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function saveAssociate(newAssociate) {
-    //  check if the skill field is a string and convert it to an array before saving it to the database
-    if (typeof newAssociate.skill === "string") {
-      newAssociate.skill = [newAssociate.skill];
+    //  check if the training field is a string and convert it to an array before saving it to the database
+    if (typeof newAssociate.training === "string") {
+      newAssociate.training = [newAssociate.training];
     }
     // use POST method to update new associate to db.json
     fetch("http://localhost:3000/associates", {
@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(newAssociate),
     })
       .then((response) => response.json())
-      .then((associate) => createAssociateElement(associate)); // call function createassociateElement to create new associate
+      .then((associate) => createAssociateElement(associate)); // call function createAssociateElement to create new associate
   }
 });

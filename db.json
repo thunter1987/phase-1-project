@@ -2,9 +2,9 @@
   "employees": [
     {
       "id": 1,
-      "name": "",
-      "login": "",
-      "training": [],
+      "name": "John Smith   ",
+      "login": "jsamzl",
+      "training": [Divert],
       "assignment": ""
     },
     {
