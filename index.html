@@ -1,18 +1,18 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Associate Task Assignments</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header>
       <h1>Associate Task Assignments</h1>
     </header>
     <main>
-    <section class="associates">
+      <section class="associates">
         <h3>Associates</h3>
         <!-- Associates table will be generated using JS-->
         <table id="associates-table">
@@ -57,8 +57,28 @@
         </div>
         <button type="click" id="remove-employee-button">Remove</button>
       </section>
-
-      </main>
+      <section class="employee-update">
+        <!-- form to update employee training-->
+        <form id="update-employee-form">
+          <h3>Update Employee Training</h3>
+          <div>
+            <label for="employee-login>">Employee Login</label>
+            <input type="text" id="employee-login-update" required />
+          </div>
+          <div>
+            <label for="employee-training-update">Training:</label>
+            <select id="employee-training-update" required>
+              <option value="">Select Training...</option>
+              <option value="induction">Induction</option>
+              <option value="divert">Divert</option>
+              <option value="pick">Pick</option>
+              <option value="sort">Sort</option>
+            </select>
+          </div>
+          <button type="submit" id="update-training-button">Update</button>
+        </form>
+      </section>
+    </main>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
