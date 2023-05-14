@@ -26,21 +26,21 @@
           </thead>
         </table>
       </section>
-      <section class="employee-add-remove">
-        <!-- form to add new employee-->
-        <form id="add-employee-form">
-          <h3>Add New Employee</h3>
+      <section class="associate-add-remove">
+        <!-- form to add new associate-->
+        <form id="add-associate-form">
+          <h3>Add New Associate</h3>
           <div>
-            <label for="employee-name">Name:</label>
-            <input type="text" id="employee-name" required />
+            <label for="associate-name">Name:</label>
+            <input type="text" id="associate-name" required />
           </div>
           <div>
-            <label for="employee-login">Employee Login</label>
-            <input type="text" id="employee-login" required />
+            <label for="associate-login">Associate Login</label>
+            <input type="text" id="associate-login" required />
           </div>
           <div>
-            <label for="employee-training">Trained On:</label>
-            <select id="employee-training" required>
+            <label for="associate-training">Trained On:</label>
+            <select id="associate-training" required>
               <option value="">Select Training...</option>
               <option value="induction">Induction</option>
               <option value="divert">Divert</option>
@@ -48,26 +48,26 @@
               <option value="sort">Sort</option>
             </select>
           </div>
-          <button type="submit" id="add-employee-button">Add</button>
+          <button type="submit" id="add-associate-button">Add</button>
         </form>
-        <h3>Remove Employee</h3>
+        <h3>Remove Associate</h3>
         <div>
-          <label for="employee-login">Employee Login</label>
-          <input type="text" id="employee-login-remove" required />
+          <label for="associate-login">Associate Login</label>
+          <input type="text" id="associate-login-remove" required />
         </div>
-        <button type="click" id="remove-employee-button">Remove</button>
+        <button type="click" id="remove-associate-button">Remove</button>
       </section>
-      <section class="employee-update">
-        <!-- form to update employee training-->
-        <form id="update-employee-form">
-          <h3>Update Employee Training</h3>
+      <section class="associate-update">
+        <!-- form to update associate training-->
+        <form id="update-associate-form">
+          <h3>Update Associate Training</h3>
           <div>
-            <label for="employee-login>">Employee Login</label>
-            <input type="text" id="employee-login-update" required />
+            <label for="associate-login>">Associate Login</label>
+            <input type="text" id="associate-login-update" required />
           </div>
           <div>
-            <label for="employee-training-update">Training:</label>
-            <select id="employee-training-update" required>
+            <label for="associate-training-update">Training:</label>
+            <select id="associate-training-update" required>
               <option value="">Select Training...</option>
               <option value="induction">Induction</option>
               <option value="divert">Divert</option>
@@ -130,8 +130,8 @@
             </select>
           </div>
           <div>
-            <label for="employee-login">Employee Login: </label>
-            <input type="text" id="employee-login-add-work" required />
+            <label for="associate-login">Associate Login: </label>
+            <input type="text" id="associate-login-add-work" required />
           </div>
           <button type="submit" id="add-work-button">
             Add Work Assignment
