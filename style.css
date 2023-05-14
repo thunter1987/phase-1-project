@@ -1,15 +1,38 @@
 html {
-    height: 100%;
-    width: 100%;
-  }
-  
-  body {
-    background-color: blue;
-    color: white
-  }
-  table {
-    table-layout: auto;
-    width: 100%;
-    margin-left: auto;
-    border: 3px solid white
-  }
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-weight: bold;
+  background-color: blue;
+  color: white;
+}
+h3 {
+  margin-left: 70px;
+}
+table {
+  table-layout: auto;
+  width: 60%;
+  margin: auto;
+  border: 3px solid white;
+}
+input {
+  font-weight: bold;
+  padding: 7px;
+}
+input:focus {
+  background-color: wheat;
+  color: black;
+}
+button:hover {
+  background-color: #333;
+  color: #fff;
+}
+option {
+  font-weight: bold;
+}
+optgroup {
+  font-weight: bolder;
+}
