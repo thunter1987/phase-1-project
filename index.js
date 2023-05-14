@@ -132,4 +132,76 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+  function updateAssociateTraining() {
+    const updateAssociateForm = document.getElementById("update-associate-form");
+
+    updateAssociateForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      // get the values of Associate login and new training from the form
+      let associateLogin = document.getElementById(
+        "associate-login-update"
+      ).value;
+      let associateTrainingUpdate = document.getElementById(
+        "associate-training-update"
+      ).value;
+
+      fetch(`http://localhost:3000/associates?login=${associateLogin}`) //retrieve the associate with the specified login
+        .then((response) => response.json())
+        .then((associates) => {
+          if (associates.length === 0) {
+            alert("Invalid Associate login");
+          }
+          // only one associate match the associate login, so we can access the first associate object return by json
+          let associate = associates[0];
+          let trainings = associate.Training;
+          console.log(trainings);
+
+          if (!trainings.includes(associateTrainingUpdate)) {
+            // if the new training is not already in the trainings list, add it
+            trainings.push(associateTrainingUpdate);
+
+            updateAssociate(associate.id, { Training: trainings }); // call function updateAssociate
+          } else {
+            alert("Associate Training already exists");
+          }
+        })
+        .catch((error) => console.log("Error fetching:", error));
+      updateAssociateForm.reset();
+    });
+  }
+
+  async function updateAssociate(associateId, updateData) {
+    // Make a PATCH request using associate Id
+    try {
+      const response = await fetch(`http://localhost:3000/associates/${associateId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(updateData),
+      }
+      );
+      const updatedAssociate = await response.json();
+      // Pass the updated associate object to the updateAssociateRow function
+      updateassociateRow(updatedAssociate);
+    } catch (error) {
+      return console.log(`Error fetching:`, error);
+    }
+  }
+
+  function updateassociateRow(associate) {
+    // Loop through each row of the table
+    for (let i = 0; i < rows.length; i++) {
+      // Get the cell containing the login of the associate in row at td[1]
+      let loginCell = rows[i].querySelectorAll("td")[1];
+
+      if (loginCell && loginCell.textContent === associate.login) {
+        // Update the skill cell of the current row with the updated skill
+        rows[i].querySelectorAll("td")[2].textContent = associate.skill;
+        break;
+      }
+    }
+  }
+
 });
