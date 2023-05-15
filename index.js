@@ -282,5 +282,35 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     );
   }
+  function createDeleteButton(elementLi, associateId, updateData) {
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "x";
 
+    deleteBtn.addEventListener("mouseover", () => {
+      // Sets the originalColor property of the button to its original color
+      deleteBtn.originalColor = deleteBtn.style.color;
+      // changes the button's text color to red.
+      deleteBtn.style.color = "red";
+    });
+
+    deleteBtn.addEventListener("mouseout", () => {
+      // Resets the button's text color to its original color.
+      deleteBtn.style.color = deleteBtn.originalColor;
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      // Removes the corresponding list item from the HTML
+      elementLi.remove();
+      // calls the updateAssociate function to update the associate record in the database.
+      updateAssociate(associateId, updateData);
+
+      positionStatus = document.querySelectorAll(".position-status");
+      positionStatus.forEach(status => {
+        status.textContent = "offline";
+        status.style.color = "red";
+      })
+    });
+
+    elementLi.appendChild(deleteBtn);
+  }
 });
