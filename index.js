@@ -159,8 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (trainings.includes(associateTrainingUpdate)) {
             alert("Associate Training already exists");
-          }
-          else {
+          } else {
             // if the new training is not already in the trainings list, add it
             trainings.push(associateTrainingUpdate);
 
@@ -174,17 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateAssociate(associateId, updateData) {
     // Make a PATCH request using associate Id
-    return fetch(
-        `http://localhost:3000/associates/${associateId}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(updateData),
-        }
-      )
+    return fetch(`http://localhost:3000/associates/${associateId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(updateData),
+    })
       .then((response) => response.json())
       .then((updatedAssociate) => {
         // Pass the updated Associate object to the updateAssociateRow function
@@ -205,5 +201,19 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       }
     }
+  }
+  // This function retrieves all the associates from the database and returns an array of assignments where associates are currently assigned to work.
+  function getAssignmentArray() {
+    return fetch("http://localhost:3000/associates")
+      .then((response) => response.json())
+      .then((associates) => {
+        let assignments = [];
+        associates.forEach((employee) => {
+          if (employee.assignment) {
+            assignments.push(employee.assignment);
+          }
+        });
+        return assignments;
+      });
   }
 });
