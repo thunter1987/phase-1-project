@@ -228,14 +228,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let associateLogin = document.getElementById(
           "associate-login-add-work"
         ).value;
-        let assignment = document.getElementById("assignment").value;
-        // assignment value, for example is titan-1, so we need to split it and get the first index only
-        let assignmentName = assignment.split("-")[0];
+        let assignmentName = document.getElementById("assignment").value;
 
-        fetch(
-          `https://project-associate-management-system.onrender.com/associates?login=${associateLogin}`
-        )
-          //fetch(`http://localhost:3000/associates?login=${associateLogin}`) //retrieve the associate with the specified login
+        fetch(`http://localhost:3000/associates?login=${associateLogin}`)
           .then((response) => response.json())
           .then((associates) => {
             if (associates.length === 0) {
@@ -251,16 +246,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 `This associate does not have training to work at ${assignmentName}`
               );
             }
-            // check if assignment is already assigned
-            else if (assignedAssignment.includes(assignment)) {
-              alert(`${assignment} has been already assigned to another associate`);
-            }
             // if workAssignment return true. that means this associate already assigned to a work assignment
             else if (workAssignment) {
               alert(`This associate is already at ${workAssignment}`);
               // if associate is not assigned to a assignment
             } else {
-              workAssignment = assignment;
+              workAssignment = assignmentName;
               // call function updateAssociate
               updateAssociate(associate.id, { assignment: workAssignment }).then(() => {
                 // update the list of associates at each assignment
