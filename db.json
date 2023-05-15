@@ -5,10 +5,16 @@
       "login": "jaamzl",
       "training": [
         "Induction",
-        "Stow"
+        "Stow",
+        "Divert"
       ],
       "assignment": "Stow E",
-      "id": 2
+      "id": 2,
+      "Training": [
+        "Induction",
+        "Stow",
+        "Divert"
+      ]
     },
     {
       "name": "Tony Hunter",
