@@ -264,5 +264,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  // This function retrieves a list of associates from the server and returns an object with key-value pairs
+  // where the key is the associate's name and the value is the assignment they are currently assigned to.
+  function getAssociatesAssignmentsObj() {
+    let associateAtAssignment = {};
+    return (
+      fetch("http://localhost:3000/associates")
+        .then((response) => response.json())
+        .then((associates) => {
+          associates.forEach((associate) => {
+            if (associate.assignment) {
+              associateAtAssignment[associate.name] = associate.assignment;
+            }
+          });
+          // Return the object with the associates at assignments
+          return associateAtAssignment;
+        })
+    );
+  }
 
 });
