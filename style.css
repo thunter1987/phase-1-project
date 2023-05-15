@@ -13,10 +13,20 @@ h3 {
   margin-left: 70px;
 }
 table {
-  table-layout: auto;
-  width: 60%;
+  grid-area: auto;
+  text-align: center;
+  table-layout:auto;
   margin: auto;
+  width: 60%;
   border: 3px solid white;
+}
+th{
+  text-align: center;
+  border-bottom: 3px dashed white;
+}
+tr{
+  row-gap: 5px;
+  margin-top: 7px;
 }
 input {
   font-weight: bold;
