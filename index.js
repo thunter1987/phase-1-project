@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addAssociate(); // add new associate and save to db.json
   removeAssociates(); // remove associate and update to db.json
   updateAssociateTraining(); // update training for associate and save to db.json
-  //addAssignment(); // add associate to a work assignment and update to db.json
+  addAssignment(); // add associate to a work assignment and update to db.json
 
   function fetchAssociates() {
     fetch("http://localhost:3000/associates")
@@ -208,12 +208,70 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((associates) => {
         let assignments = [];
-        associates.forEach((employee) => {
-          if (employee.assignment) {
-            assignments.push(employee.assignment);
+        associates.forEach((associate) => {
+          if (associate.assignment) {
+            assignments.push(associate.assignment);
           }
         });
         return assignments;
       });
   }
+  // This function handle adding a new work to an associate.
+  function addAssignment() {
+    const addAssignmentForm = document.getElementById("add-work-form");
+
+    addAssignmentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      //  call the getAssignmentArray() function, which retrieves an array of all assigned assignments from the server.
+      getAssignmentArray().then((assignedAssignment) => {
+        console.log(assignedAssignment);
+        let associateLogin = document.getElementById(
+          "associate-login-add-work"
+        ).value;
+        let assignment = document.getElementById("assignment").value;
+        // assignment value, for example is titan-1, so we need to split it and get the first index only
+        let assignmentName = assignment.split("-")[0];
+
+        fetch(
+          `https://project-associate-management-system.onrender.com/associates?login=${associateLogin}`
+        )
+          //fetch(`http://localhost:3000/associates?login=${associateLogin}`) //retrieve the associate with the specified login
+          .then((response) => response.json())
+          .then((associates) => {
+            if (associates.length === 0) {
+              alert("Invalid associate login");
+            }
+
+            let associate = associates[0];
+            let trainings = associate.training;
+            let workAssignment = associate.assignment;
+            // check if assignment name is not in trainings
+            if (!trainings.includes(assignmentName)) {
+              alert(
+                `This associate does not have training to work at ${assignmentName}`
+              );
+            }
+            // check if assignment is already assigned
+            else if (assignedAssignment.includes(assignment)) {
+              alert(`${assignment} has been already assigned to another associate`);
+            }
+            // if workAssignment return true. that means this associate already assigned to a work assignment
+            else if (workAssignment) {
+              alert(`This associate is already at ${workAssignment}`);
+              // if associate is not assigned to a assignment
+            } else {
+              workAssignment = assignment;
+              // call function updateAssociate
+              updateAssociate(associate.id, { assignment: workAssignment }).then(() => {
+                // update the list of associates at each assignment
+                displayAssociateAtAssignment();
+              });
+            }
+          })
+          .catch((error) => console.log("Error fetching:", error));
+        addAssignmentForm.reset();
+      });
+    });
+  }
+
 });
