@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let associateLogin = document.getElementById(
           "associate-login-add-work"
         ).value;
-        let assignmentName = document.getElementById("assignment").value;
+        //let assignmentName = document.getElementById("assignment").value;
 
         fetch(`http://localhost:3000/associates?login=${associateLogin}`)
           .then((response) => response.json())
@@ -241,17 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
             let trainings = associate.training;
             let workAssignment = associate.assignment;
             // check if assignment name is not in trainings
-            if (!trainings.includes(assignmentName)) {
+            /*if (!trainings.includes(assignmentName)) {
               alert(
                 `This associate does not have training to work at ${assignmentName}`
               );
-            }
+            }*/
             // if workAssignment return true. that means this associate already assigned to a work assignment
-            else if (workAssignment) {
+            if (workAssignment) {
               alert(`This associate is already at ${workAssignment}`);
               // if associate is not assigned to a assignment
             } else {
-              workAssignment = assignmentName;
               // call function updateAssociate
               updateAssociate(associate.id, { assignment: workAssignment }).then(() => {
                 // update the list of associates at each assignment
@@ -312,5 +311,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     elementLi.appendChild(deleteBtn);
+  }
+  function displayAssociateAtAssignment() {
+    let positionStatusList = document.querySelectorAll(".position-status");
+    getAssociatesAssignmentsObj().then((associates) => {
+      let assignments = document.querySelectorAll(".associates-at-position");
+
+      // loop through each assignment in HTML
+      assignments.forEach((assignment, index) => {
+        let assignmentName = assignment.dataset.position;
+        let associateAtAssignment = Object.keys(associates).filter(
+          (key) => associates[key] === assignmentName
+        );
+        // Clear the previous list of associates at this assignment
+        assignment.textContent = "";
+        // Generate the list of associates for this position
+        associateAtAssignment.forEach((associate) => {
+          let li = document.createElement("li");
+          li.style.color = "limegreen";
+          li.textContent = associate + " ";
+          assignment.appendChild(li);
+
+          fetch(`http://localhost:3000/associates?name=${associate}`)
+            .then((response) => response.json())
+            .then((associates) => {
+              let positionStatus = positionStatusList[index];
+              // Check if there is at least one associate in the array
+              if (associates.length > 0) {
+                let associateId = associates[0].id; // get the associate id from the response
+                createDeleteButton(li, associateId, { assignment: "" });
+
+                // Update the corresponding position status
+                positionStatus.textContent = "online";
+                positionStatus.style.color = "limegreen";
+              }
+            });
+        });
+      });
+    });
   }
 });
