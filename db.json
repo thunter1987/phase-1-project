@@ -8,7 +8,9 @@
         "Stow",
         "Divert"
       ],
-      "assignment": "Water Spider",
+      "assignment": [
+        ""
+      ],
       "id": 2
     },
     {
@@ -20,16 +22,17 @@
         "Pick",
         "Stow"
       ],
-      "assignment": "Pick P",
-      "id": 3
+      "assignment": [
+        ""
+      ],
+      "id": 1
     },
     {
       "name": "John Smith",
       "login": "jsamzl",
       "training": [
-        "Induction"
       ],
-      "id": 4
+      "id": 3
     }
   ]
 }
