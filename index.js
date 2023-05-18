@@ -241,11 +241,11 @@ document.addEventListener("DOMContentLoaded", () => {
             let trainings = associate.training;
             let workAssignment = associate.assignment;
             // check if assignment name is not in trainings
-            /*if (!trainings.includes(assignmentName)) {
+            if (!trainings.includes(assignmentName)) {
               alert(
                 `This associate does not have training to work at ${assignmentName}`
               );
-            }*/
+            }
             // if workAssignment return true. that means this associate already assigned to a work assignment
             if (workAssignment) {
               alert(`This associate is already at ${workAssignment}`);

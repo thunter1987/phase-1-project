@@ -81,53 +81,18 @@
         <form id="add-work-form">
           <h3>Associate Work Assignment</h3>
           <div>
-            <label>Work Assignment</label>
+            <label>Work Assignment:</label>
             <select id="assignment" required>
               <option value="">Select Assignment...</option>
-              <optgroup class="assignment-name"label="Induction">
-                <option>Water Spider</option>
-                <option>Line Loader</option>
-                <option>Inductor</option>
-                <option>Pusher</option>
-              </optgroup>
-              <optgroup class="assignment-name" label="Divert">
-                <option>A,B</option>
-                <option>C,D</option>
-                <option>H,J</option>
-                <option>K,L</option>
-              </optgroup>
-              >
-              <optgroup class="assignment-name" label="Pick">
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-                <option>G</option>
-                <option>H</option>
-                <option>J</option>
-                <option>K</option>
-                <option>L</option>
-                <option>M</option>
-                <option>P</option>
-              </optgroup>
-              >
-              <optgroup class="assignment-name" label="Stow">
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-                <option>G</option>
-                <option>H</option>
-                <option>J</option>
-                <option>K</option>
-                <option>L</option>
-                <option>M</option>
-                <option>P</option>
-              </optgroup>
-              >
+              <option value="Induction">Induction</option>
+              <option value="Divert">Divert</option>
+              <option value="Pick">Pick</option>
+              <option value="Stow">Stow</option>
             </select>
+          </div>
+          <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location">
           </div>
           <div>
             <label for="associate-login">Associate Login: </label>
