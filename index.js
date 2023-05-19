@@ -114,10 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
           // use associate ID to fetch data and DELETE method to delete that associate
           fetch(`http://localhost:3000/associates/${associateId}`, {
             method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
           })
             .then((response) => response.json())
             .then((removedAssociate) => {
@@ -183,24 +179,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  async function updateAssociate(associateId, updateData) {
+  function updateAssociate(associateId, updateData) {
     // Make a PATCH request using associate Id
-    try {
-      const response = await fetch(`http://localhost:3000/associates/${associateId}`, {
+    return fetch(`http://localhost:3000/associates/${associateId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify(updateData),
-      });
-      const updatedAssociate = await response.json();
-      // Pass the updated associate object to the updateAssociateRow function
+      }
+      )
+      .then((response) => response.json())
+      .then(((updatedAssociate) => {
+             // Pass the updated associate object to the updateAssociateRow function
       updateAssociateRow(updatedAssociate);
-    } catch (error) {
-      return console.log(`Error fetching:`, error);
+      })
+     .catch((error) => console.log(`Error fetching:`, error)))
     }
-  }
 
   function updateAssociateRow(associate) {
     // Loop through each row of the table
@@ -211,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (loginCell && loginCell.textContent === associate.login) {
         // Update the training cell of the current row with the updated training
         rows[i].querySelectorAll("td")[2].textContent = associate.training;
-        rows[i].querySelectorAll("td")[3].textContent = associate.workPosition;
+        rows[i].querySelectorAll("td")[3].textContent = [associate.position];
         break;
       }
     }
@@ -259,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let associate = associates[0];
             let trainings = associate.training;
-            let workPosition = associate.position;
+            let workPosition = [associate.position];
             // check if position name is not in trainings
             if (!trainings.includes(positionName)) {
               alert(
@@ -279,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               workPosition = position;
               // call function updateAssociate
-              updateAssociate(associate.id, { position: workPosition }).then(
+              updateAssociate(associate.id, { position: [workPosition] }).then(
                 () => {
                   // update the list of associates at each position
                   displayAssociateAtPosition();
@@ -352,8 +348,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let associateAtPosition = Object.keys(associates).filter(
           (key) => associates[key] === positionName
         );
-        // Clear the previous list of associates at this position
-        position.textContent = "";
         // Generate the list of associates for this position
         associateAtPosition.forEach((associate) => {
           let li = document.createElement("li");
@@ -366,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then((associates) => {
               let positionStatus = positionStatusList[index];
               // Check if there is at least one associate in the array
-              if (associates.length === 0) {
+              if (associates.length > 0) {
                 let associateId = associates[0].id; // get the associate id from the response
                 createDeleteButton(li, associateId, { position: "" });
 

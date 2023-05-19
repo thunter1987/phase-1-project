@@ -9,22 +9,32 @@ body {
   background-color: blue;
   color: white;
 }
+
 h3 {
   margin-left: 70px;
 }
+#associates,
 table {
   grid-area: auto;
   text-align: center;
   table-layout:auto;
   margin: auto;
-  width: 60%;
+  justify-content: center;
+}
+table{
+  columns: auto;
+  margin-top: 30px;
+  color: black;
+  background-color: yellow;
+  width: max-content;
   border: 3px solid white;
+  ;
 }
 th{
   text-align: center;
-  border-bottom: 3px dashed white;
+  border-bottom: 3px solid black
 }
-tr{
+td{
   row-gap: 5px;
   margin-top: 7px;
 }
@@ -42,7 +52,4 @@ button:hover {
 }
 option {
   font-weight: bold;
-}
-optgroup {
-  font-weight: bolder;
 }

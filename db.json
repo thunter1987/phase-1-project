@@ -1,40 +1,44 @@
 {
   "associates": [
     {
+      "name": "Tony Hunter",
+      "login": "tonyamzl",
+      "training": [
+        "Divert"
+      ],
+      "id": 1,
+      "position": [""
+    ]
+      
+    },
+    {
       "name": "Jane Smith",
-      "login": "jaamzl",
+      "login": "janeamzl",
       "training": [
         "Induction",
         "Stow",
         "Divert",
-        "Induction"
+        "Induction",
+        "Induct"
       ],
-      "assignment": [],
-      "id": 2
-    },
-    {
-      "name": "John Smith",
-      "login": "jsamzl",
-      "training": [],
-      "assignment": [],
-      "id": 3
-    },
-    {
-      "name": "Tony Hunter",
-      "login": "thamzl",
-      "training": [
-        "divert"
-      ],
-      "id": 4,
-      "position": "divert-2"
+      "id": 2,
+      "position": ["Divert-2"]
+  
     },
     {
       "name": "John Smith",
       "login": "johnamzl",
+      "training": [],
+      "id": 3
+    },
+    {
+      "name": "Josh Smith",
+      "login": "joshamzl",
       "training": [
-        "Induction"
+        "Divert"
       ],
-      "id": 5
+      "id": 4,
+      "position": ["Divert-4"]
     }
   ]
 }
