@@ -6,33 +6,35 @@
       "training": [
         "Induction",
         "Stow",
-        "Divert"
+        "Divert",
+        "Induction"
       ],
-      "assignment": [
-        ""
-      ],
+      "assignment": [],
       "id": 2
+    },
+    {
+      "name": "John Smith",
+      "login": "jsamzl",
+      "training": [],
+      "assignment": [],
+      "id": 3
     },
     {
       "name": "Tony Hunter",
       "login": "thamzl",
       "training": [
-        "Induction",
-        "Divert",
-        "Pick",
-        "Stow"
+        "divert"
       ],
-      "assignment": [
-        ""
-      ],
-      "id": 1
+      "id": 4,
+      "position": "divert-2"
     },
     {
       "name": "John Smith",
-      "login": "jsamzl",
+      "login": "johnamzl",
       "training": [
+        "Induction"
       ],
-      "id": 3
+      "id": 5
     }
   ]
 }
