@@ -36,13 +36,18 @@
           </div>
           <div>
             <label for="associate-login">Associate Login</label>
-            <input type="text" id="associate-login" required
-            minlength="8" maxlength="8" />
+            <input
+              type="text"
+              id="associate-login"
+              required
+              minlength="8"
+              maxlength="8"
+            />
           </div>
           <div>
             <label for="associate-training">Trained On:</label>
             <select id="associate-training" required>
-              <option selected disabled value="">Select Training...</option>
+              <option value="">Select Training...</option>
               <option value="Induct">Induction</option>
               <option value="Divert">Divert</option>
               <option value="Pick">Pick</option>
@@ -51,27 +56,39 @@
           </div>
           <button type="submit" id="add-associate-button">Add</button>
         </form>
+        <form id="remove-associate-form">
         <h3>Remove Associate</h3>
         <div>
-          <label for="associate-login">Associate Login</label>
-          <input type="text" id="associate-login-remove" required 
-          minlength="8" maxlength="8"/>
+          <label>Associate Login</label>
+          <input
+            type="text"
+            id="associate-login"
+            required
+            minlength="8"
+            maxlength="8"
+          />
         </div>
         <button type="button" id="remove-associate-button">Remove</button>
+        </form>
       </section>
       <section class="associate-update">
         <!-- form to update associate training-->
         <form id="update-associate-form">
           <h3>Update Associate Training</h3>
           <div>
-            <label for="associate-login-update">Associate Login</label>
-            <input type="text" id="associate-login-update" required 
-            minlength="8" maxlength="8"/>
+            <label for="associate-login">Associate Login</label>
+            <input
+              type="text"
+              id="associate-login-remove"
+              required
+              minlength="8"
+              maxlength="8"
+            />
           </div>
           <div>
             <label for="associate-training-update">Training:</label>
             <select id="associate-training-update" required>
-              <option selected disabled value="">Select Training...</option>
+              <option value="">Select Training...</option>
               <option value="Induct">Induction</option>
               <option value="Divert">Divert</option>
               <option value="Pick">Pick</option>
@@ -86,183 +103,27 @@
           <div>
             <label for="position-name">Position</label>
             <select id="position" required>
-              <option selected disabled value="">Select a position...</option>
-              <option value="Induct-1">Induction 1</option>
-              <option value="Induct-2">Induction 2</option>
-              <option value="Induct-3">Induction 3</option>
-              <option value="Induct-4">Induction 4</option>
-              <option value="Induct-5">Induction 5</option>
-              <option value="Divert-1">Divert 1</option>
-              <option value="Divert-2">Divert 2</option>
-              <option value="Divert-3">Divert 3</option>
-              <option value="Divert-4">Divert 4</option>
-              <option value="Divert-5">Divert 5</option>
-              <option value="Pick-1">Pick 1</option>
-              <option value="Pick-2">Pick 2</option>
-              <option value="Pick-3">Pick 3</option>
-              <option value="Pick-4">Pick 4</option>
-              <option value="Pick-5">Pick 5</option>
-              <option value="Stow-1">Stow 1</option>
-              <option value="Stow-2">Stow 2</option>
-              <option value="Stow-3">Stow 3</option>
-              <option value="Stow-4">Stow 4</option>
-              <option value="Stow-5">Stow 5</option>
+              <option value="">Select a position...</option>
+              <option value="Induct">Induction</option>
+              <option value="Divert">Divert</option>
+              <option value="Pick">Pick</option>
+              <option value="Sort">Sort</option>
             </select>
           </div>
           <div>
             <label for="associate-login">Associate Login:</label>
-            <input type="text" id="associate-login-add-work" required
-            minlength="8" maxlength="8" />
+            <input
+              type="text"
+              id="associate-login"
+              required
+              minlength="8"
+              maxlength="8"
+            />
           </div>
           <button type="submit" id="add-work-button">
             Add Work Assignment
           </button>
         </form>
-      </section>
-      <section class="positions">
-        <h3>Positions</h3>
-        <ul class="work-position">
-          <li>
-            Induct 1
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="induct-1">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Induct 2
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="induct-2">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Induct 3
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="induct-3">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Induct 4
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="induct-4">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Induct 5
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="induct-5">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Divert 1
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="divert-1">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Divert 2
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="divert-2">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Divert 3
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="divert-3">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Divert 4
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="divert-4">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Divert 5
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="divert-5">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Pick 1
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="pick-1">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Pick 2
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="pick-2">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Pick 3
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="pick-3">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Pick 4
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="pick-4">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Pick 5
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="pick-5">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Stow Printer 1
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="stow-1">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Stow Printer 2
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="stow-2">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Stow Printer 3
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="stow-3">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Stow Printer 4
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="stow-4">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-          <li>
-            Stow Printer 5
-            <span class="position-status" style="color: red;">offline</span>
-            <ul class="associates-at-position" data-position="stow-5">
-              <!-- Associates at this position will be generated dynamically using JavaScript -->
-            </ul>
-          </li>
-        </ul>
       </section>
     </main>
     <script src="./index.js"></script>

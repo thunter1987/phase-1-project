@@ -4,12 +4,13 @@
       "name": "Tony Hunter",
       "login": "tonyamzl",
       "training": [
-        "Divert"
+        "Divert",
+        "Induct"
       ],
       "id": 1,
-      "position": [""
-    ]
-      
+      "position": [
+        ""
+      ]
     },
     {
       "name": "Jane Smith",
@@ -22,14 +23,21 @@
         "Induct"
       ],
       "id": 2,
-      "position": ["Divert-2"]
-  
+      "position": [
+        "Divert-2"
+      ]
     },
     {
       "name": "John Smith",
       "login": "johnamzl",
-      "training": [],
-      "id": 3
+      "training": [
+        "Induct",
+        "Divert"
+      ],
+      "id": 3,
+      "position": [
+        "Induction-1"
+      ]
     },
     {
       "name": "Josh Smith",
@@ -38,7 +46,9 @@
         "Divert"
       ],
       "id": 4,
-      "position": ["Divert-4"]
+      "position": [
+        "Divert-4"
+      ]
     }
   ]
 }
